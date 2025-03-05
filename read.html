@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9:16 Box with 4:3 Image, Line & Logo</title>
+    <title>Dynamic Content Card</title>
     <style>
         body {
             display: flex;
@@ -11,127 +10,177 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f5f5f5; /* Light background */
+            font-family: Arial, sans-serif;
         }
-
-        .transparent-box {
-            width: 280px; /* 9:16 aspect ratio */
-            height: 500px;
-            border: 2px solid #da2824;
-            border-radius: 5px;
-            background-color: transparent;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #da2824;
-            font-size: 18px;
-            text-align: center;
+        .card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            height: 200px;
+            position: relative;
             overflow: hidden;
         }
-
-        .parent {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-        }
-
-        .div1 {
-            width: 100%;
-            height: 216px; /* Fixed image height */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-        }
-
-        .image-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
         .image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Maintains aspect ratio */
-            object-position: top;
+            object-fit: cover;
         }
-
-        .div2 {
-            width: 100%;
-            height: 2px; /* Fixed divider height */
-            background-color: #da2824;
+        .logo-container {
+            padding: 10px 20px;
+            background-color: white;
         }
-
-        .div3 {
-            width: 100%;
-            height: 20px; /* Fixed logo height */
-            display: flex;
-            align-items: center;
-            padding-left: 15px;
-        }
-
         .logo {
-            height: 20px; /* Ensures logo remains 20px */
-            width: auto;
-        }
-
-        .div4 {
-            width: 100%;
-            height: 249px; /* Remaining space */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding: 20px;
-            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
-        .div4 h2, .div4 p, .div4 .small-text {
+        .logo img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .content {
+            padding: 15px 20px;
+            background-color: white;
             text-align: left;
-            margin: 0 0 20px 0; /* Adds 20px bottom margin for spacing */
         }
-
-        .div4 .small-text {
+        .content h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+        .content .author {
+            color: #999;
             font-size: 12px;
-            color: #777;
+            text-align: left;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            background-color: white;
+        }
+        .nav-button {
+            background-color: white;
+            color: #f44336;
+            border: 1px solid #f44336;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #f44336;
+            color: white;
+        }
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
-
-    <div class="transparent-box">
-        <div class="parent">
-            <div class="div1">
-                <div class="image-container">
-                    <img src="data:image/png;base64,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" alt="4:3 Ratio Image">
-                </div>
+    <div class="card">
+        <div class="image-container">
+            <img id="card-image" src="" alt="Background Image">
+        </div>
+        <div class="logo-container">
+            <div class="logo">
+                <img id="logo-image" src="" alt="Logo">
             </div>
-            <div class="div2"></div>
-            <div class="div3">
-                <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/b69c3758e3a2c9a10bcf4e299f70fbfab91e496c/Logo/Sector-Logo.svg" alt="Logo" class="logo">
-            </div>
-            <div class="div4">
-                <h2 id="heading"></h2>
-                <p id="paragraph"></p>
-                <div class="small-text" id="smallText"></div>
-            </div>
+        </div>
+        <div class="content">
+            <h2 id="card-title"></h2>
+            <p id="card-paragraph"></p>
+            <div id="card-author" class="author"></div>
+        </div>
+        <div class="navigation">
+            <button id="prev-btn" class="nav-button">Previous</button>
+            <button id="next-btn" class="nav-button">Next</button>
         </div>
     </div>
 
     <script>
-        // Fetch data from JSON hosted on GitHub
-        fetch("https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/data.json")
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("heading").innerText = data.heading;
-                document.getElementById("paragraph").innerText = data.paragraph;
-                document.getElementById("smallText").innerText = data.smallText;
-            })
-            .catch(error => console.error("Error loading JSON:", error));
-    </script>
+        // URL of your JSON file via AllOrigins Proxy
+        const dataUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://raw.githubusercontent.com/SectorApp/SectorApp/main/data.json");
 
+        let contentData = [];
+        let currentIndex = 0;
+
+        // Fetch JSON data
+        async function fetchData() {
+            try {
+                const response = await fetch(dataUrl);
+                if (!response.ok) throw new Error("Failed to load data");
+
+                const result = await response.json();
+                contentData = JSON.parse(result.contents); // Extract JSON from AllOrigins response
+                updateCardContent(currentIndex);
+            } catch (error) {
+                console.error("Error fetching JSON:", error);
+                alert("Failed to load content. Please try again later.");
+            }
+        }
+
+        // DOM Elements
+        const cardImage = document.getElementById("card-image");
+        const logoImage = document.getElementById("logo-image");
+        const cardTitle = document.getElementById("card-title");
+        const cardParagraph = document.getElementById("card-paragraph");
+        const cardAuthor = document.getElementById("card-author");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+
+        // Function to update card content
+        function updateCardContent(index) {
+            if (!contentData.length) return;
+
+            const content = contentData[index];
+
+            cardImage.src = content.image;
+            logoImage.src = content.logo;
+            cardTitle.textContent = content.title;
+            cardParagraph.textContent = content.paragraph;
+            cardAuthor.textContent = content.author;
+
+            // Update navigation button states
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === contentData.length - 1;
+        }
+
+        // Event listeners for navigation
+        prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCardContent(currentIndex);
+            }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            if (currentIndex < contentData.length - 1) {
+                currentIndex++;
+                updateCardContent(currentIndex);
+            }
+        });
+
+        // Load data on page load
+        fetchData();
+    </script>
 </body>
 </html>
