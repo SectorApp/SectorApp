@@ -117,20 +117,17 @@
     </div>
 
     <script>
-        // URL of your JSON file via AllOrigins Proxy
         const dataUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://raw.githubusercontent.com/SectorApp/SectorApp/main/data.json");
-
         let contentData = [];
         let currentIndex = 0;
 
-        // Fetch JSON data
         async function fetchData() {
             try {
                 const response = await fetch(dataUrl);
                 if (!response.ok) throw new Error("Failed to load data");
 
                 const result = await response.json();
-                contentData = JSON.parse(result.contents); // Extract JSON from AllOrigins response
+                contentData = JSON.parse(result.contents);
                 updateCardContent(currentIndex);
             } catch (error) {
                 console.error("Error fetching JSON:", error);
@@ -138,7 +135,6 @@
             }
         }
 
-        // DOM Elements
         const cardImage = document.getElementById("card-image");
         const logoImage = document.getElementById("logo-image");
         const cardTitle = document.getElementById("card-title");
@@ -147,7 +143,6 @@
         const prevBtn = document.getElementById("prev-btn");
         const nextBtn = document.getElementById("next-btn");
 
-        // Function to update card content
         function updateCardContent(index) {
             if (!contentData.length) return;
 
@@ -159,12 +154,10 @@
             cardParagraph.textContent = content.paragraph;
             cardAuthor.textContent = content.author;
 
-            // Update navigation button states
             prevBtn.disabled = index === 0;
             nextBtn.disabled = index === contentData.length - 1;
         }
 
-        // Event listeners for navigation
         prevBtn.addEventListener("click", () => {
             if (currentIndex > 0) {
                 currentIndex--;
@@ -179,7 +172,6 @@
             }
         });
 
-        // Load data on page load
         fetchData();
     </script>
 </body>
