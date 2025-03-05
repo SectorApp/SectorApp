@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Content Card</title>
     <style>
         body {
@@ -11,17 +12,20 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
         }
         .card {
-            width: 300px;
+            width: 90%;
+            max-width: 350px;
             border: 1px solid #ddd;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: white;
         }
         .image-container {
+            width: 100%;
             height: 200px;
-            position: relative;
             overflow: hidden;
         }
         .image-container img {
@@ -29,61 +33,60 @@
             height: 100%;
             object-fit: cover;
         }
-        .logo-container {
-            padding: 10px 20px;
-            background-color: white;
+        .logo-title-container {
+            display: flex;
+            align-items: left;
+            flex-direction: column;
+            padding: 10px 15px;
+            text-align: left;
         }
         .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #f0f0f0;
+            width: 50px;
+            height: 25px;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2px;
         }
         .logo img {
-            width: 30px;
-            height: 30px;
-            object-fit: cover;
-            border-radius: 50%;
+            width: 50px;
+            height: 25px;
+            object-fit: contain;
+        }
+        #card-title {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #da2824; /* Ensure heading color is red */
         }
         .content {
-            padding: 15px 20px;
-            background-color: white;
+            padding: 0 15px 15px;
             text-align: left;
         }
-        .content h2 {
-            margin-top: 0;
-            font-size: 18px;
-        }
         .content p {
-            color: #666;
+            color: #333; /* Updated paragraph color to black shade */
             font-size: 14px;
             line-height: 1.5;
-            margin-bottom: 5px;
+            margin: 5px 0;
         }
         .content .author {
             color: #999;
             font-size: 12px;
-            text-align: left;
         }
         .navigation {
             display: flex;
             justify-content: space-between;
             padding: 10px;
             border-top: 1px solid #eee;
-            background-color: white;
         }
         .nav-button {
             background-color: white;
             color: #f44336;
             border: 1px solid #f44336;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
+            font-size: 14px;
         }
         .nav-button:hover {
             background-color: #f44336;
@@ -100,13 +103,13 @@
         <div class="image-container">
             <img id="card-image" src="" alt="Background Image">
         </div>
-        <div class="logo-container">
+        <div class="logo-title-container">
             <div class="logo">
-                <img id="logo-image" src="" alt="Logo">
+                <img id="logo-image" src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Logo">
             </div>
+            <h4 id="card-title"></h4>
         </div>
         <div class="content">
-            <h2 id="card-title"></h2>
             <p id="card-paragraph"></p>
             <div id="card-author" class="author"></div>
         </div>
@@ -136,7 +139,6 @@
         }
 
         const cardImage = document.getElementById("card-image");
-        const logoImage = document.getElementById("logo-image");
         const cardTitle = document.getElementById("card-title");
         const cardParagraph = document.getElementById("card-paragraph");
         const cardAuthor = document.getElementById("card-author");
@@ -149,7 +151,6 @@
             const content = contentData[index];
 
             cardImage.src = content.image;
-            logoImage.src = content.logo;
             cardTitle.textContent = content.title;
             cardParagraph.textContent = content.paragraph;
             cardAuthor.textContent = content.author;
