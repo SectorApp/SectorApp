@@ -2,8 +2,8 @@
     {
         "image": "/api/placeholder/300/200",
         "logo": "/api/placeholder/50/50",
-        "title": "Blockchain: Beyond Cryptocurrency",
-        "paragraph": "Blockchain technology extends far beyond cryptocurrencies. Its decentralized and secure nature makes it ideal for applications in supply chain management, voting systems, and digital identity verification. As industries seek more transparent and tamper-proof solutions, blockchain is emerging as a game-changing technology.",
-        "author": "Short by Tech Innovator"
+        "title": "Sector App: Simplifying Learning with Micro-Summaries",
+        "paragraph": "Sector App is an educational platform that provides 60-word summaries for complex topics in engineering, medicine, and civil services. Designed for students and professionals, it delivers concise, easy-to-understand insights, like a short-news app for learning. Sector also offers research books and eBooks, ensuring quick, accessible knowledge without the need for lengthy reading.",
+        "author": "Short by SectorApplications"
     }
 ]
