@@ -1,23 +1,20 @@
 [
     {
-        "image": "/api/placeholder/300/200",
-        "logo": "/api/placeholder/50/50",
-        "title": "How is AI Shaping Programming?",
-        "paragraph": "AI tools like ChatGPT and GitHub Copilot are transforming software development. They assist in code generation, bug fixing, and documentation, reducing development time. By automating repetitive tasks, AI allows developers to focus on innovation. As AI continues to evolve, mastering AI-enhanced coding tools is becoming essential for staying competitive in the tech industry.",
-        "author": "Short by Revanth"
+        "image": "https://example.com/image1.jpg",
+        "title": "Introduction to AI",
+        "paragraph": "Artificial Intelligence is transforming industries by automating tasks and improving efficiency.",
+        "author": "John Doe"
     },
     {
-        "image": "/api/placeholder/300/200",
-        "logo": "/api/placeholder/50/50",
-        "title": "The Rise of Machine Learning",
-        "paragraph": "Machine learning has revolutionized various industries, from healthcare to finance. By analyzing vast amounts of data, ML algorithms can predict trends, automate decision-making, and uncover insights that were previously impossible to detect. The potential of machine learning continues to grow, promising transformative changes across multiple sectors.",
-        "author": "Short by AI Enthusiast"
+        "image": "https://example.com/image2.jpg",
+        "title": "Benefits of Cloud Computing",
+        "paragraph": "Cloud computing allows businesses to scale efficiently while reducing infrastructure costs.",
+        "author": "Jane Smith"
     },
-        {
-        "image": "/api/placeholder/300/200",
-        "logo": "/api/placeholder/50/50",
-        "title": "How is AI Shaping Programming?",
-        "paragraph": "AI tools like ChatGPT and GitHub Copilot are transforming software development. They assist in code generation, bug fixing, and documentation, reducing development time. By automating repetitive tasks, AI allows developers to focus on innovation. As AI continues to evolve, mastering AI-enhanced coding tools is becoming essential for staying competitive in the tech industry.",
-        "author": "Short by Revanth"
-    },
+    {
+        "image": "https://example.com/image3.jpg",
+        "title": "Cybersecurity Best Practices",
+        "paragraph": "Strong passwords, multi-factor authentication, and regular updates enhance security.",
+        "author": "Alice Johnson"
+    }
 ]
