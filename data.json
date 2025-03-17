@@ -2,19 +2,19 @@
     {
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbjtb5jcvj9sLnwKKUdxzgby7tVzpUc50CtQ&s",
         "title": "Introduction to AI",
-        "paragraph": "Artificial Intelligence is transforming industries by automating tasks and improving efficiency.Artificial Intelligence is transforming industries by automating tasks and improving efficiency.Artificial Intelligence is transforming industries by automating tasks and improving efficiency.",
+        "paragraph": "C is a powerful, general-purpose programming language created by Dennis Ritchie in 1972. Known for its efficiency and flexibility, it is widely used in system programming, game development, and embedded systems. C provides low-level memory access and a structured approach, making it an ideal choice for learning fundamental programming concepts.",
         "author": "John Doe"
     },
     {
         "image": "https://example.com/image2.jpg",
         "title": "Benefits of Cloud Computing",
-        "paragraph": "Cloud computing allows businesses to scale efficiently while reducing infrastructure costs.",
+        "paragraph": "C supports various data types like int, float, char, and double to store different kinds of values. Variables must be declared before use, specifying their type. Constants (const) store fixed values. Proper data type selection optimizes memory usage and improves program performance, making data management an essential part of C programming.",
         "author": "Jane Smith"
     },
     {
         "image": "https://example.com/image3.jpg",
         "title": "Cybersecurity Best Practices",
-        "paragraph": "Strong passwords, multi-factor authentication, and regular updates enhance security.",
+        "paragraph": "C uses control statements like if-else, switch, loops (for, while, do-while), and break/continue to manage program flow. These structures enable decision-making and repetition, making code efficient. Loops execute repetitive tasks, while conditionals ensure different code paths based on logic, forming the backbone of C’s structured programming.",
         "author": "Alice Johnson"
     }
 ]
