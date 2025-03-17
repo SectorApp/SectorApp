@@ -16,11 +16,21 @@
             background-color: #f9f9f9;
         }
         .top-logo {
-            margin-top: 20px;
+            margin-top: 6px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
         }
         .top-logo img {
-            width: 100px;
+            width: 80px;
             height: auto;
+            margin-left: 20px;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0px; /* Further reduced margin-top */
         }
         .card {
             width: 90%;
@@ -30,7 +40,8 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             background-color: white;
-            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
         }
         .image-container {
             width: 100%;
@@ -42,21 +53,18 @@
             height: 100%;
             object-fit: cover;
         }
-        .logo-title-container {
-            display: flex;
-            align-items: left;
-            flex-direction: column;
-            padding: 10px 15px;
-            text-align: left;
-        }
         .small-logo {
             display: flex;
             align-items: center;
-            margin: 10px 15px;
+            margin: 5px 15px;
         }
         .small-logo img {
             width: 50px;
             height: auto;
+        }
+        .logo-title-container {
+            padding: 0px 15px;
+            text-align: left;
         }
         #card-title {
             font-size: 18px;
@@ -66,6 +74,7 @@
         .content {
             padding: 0 15px 15px;
             text-align: left;
+            flex-grow: 1;
         }
         .content p {
             color: #333;
@@ -82,6 +91,7 @@
             justify-content: space-between;
             padding: 10px;
             border-top: 1px solid #eee;
+            background-color: white;
         }
         .nav-button {
             background-color: white;
@@ -107,19 +117,31 @@
             width: 330px;
             padding: 10px;
             background: white;
-            border: 2px solid #da2824;
+            border: 1px solid #da2824;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-top: 20px;
+            margin-top: 5px; /* Further reduced margin-top */
         }
         .bottom-nav i {
-            font-size: 24px;
+            font-size: 20px;
             color: #da2824;
             cursor: pointer;
         }
         @media (max-width: 600px) {
-            .card, .bottom-nav {
-                margin-top: 40px;
+            .card-container {
+                margin-top: 120px;
+            }
+
+            .bottom-nav {
+                margin-top: 10px;
+            }
+
+            .top-logo {
+                justify-content: center;
+            }
+            .top-logo img {
+                width: 100px;
+                margin-left: 0;
             }
         }
     </style>
@@ -131,23 +153,25 @@
     <div class="top-logo">
         <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Logo">
     </div>
-    <div class="card">
-        <div class="image-container">
-            <img id="card-image" src="" alt="Background Image">
-        </div>
-        <div class="small-logo">
-            <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Small Logo">
-        </div>
-        <div class="logo-title-container">
-            <h4 id="card-title"></h4>
-        </div>
-        <div class="content">
-            <p id="card-paragraph"></p>
-            <div id="card-author" class="author"></div>
-        </div>
-        <div class="navigation">
-            <button id="prev-btn" class="nav-button">Previous</button>
-            <button id="next-btn" class="nav-button">Next</button>
+    <div class="card-container">
+        <div class="card">
+            <div class="image-container">
+                <img id="card-image" src="" alt="Background Image">
+            </div>
+            <div class="small-logo">
+                <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Small Logo">
+            </div>
+            <div class="logo-title-container">
+                <h4 id="card-title"></h4>
+            </div>
+            <div class="content">
+                <p id="card-paragraph"></p>
+                <div id="card-author" class="author"></div>
+            </div>
+            <div class="navigation">
+                <button id="prev-btn" class="nav-button">Previous</button>
+                <button id="next-btn" class="nav-button">Next</button>
+            </div>
         </div>
     </div>
     <div class="bottom-nav">
@@ -165,8 +189,14 @@
                 const response = await fetch(dataUrl);
                 if (!response.ok) throw new Error("Failed to load data");
                 const result = await response.json();
-                contentData = JSON.parse(result.contents);
-                updateCardContent(currentIndex);
+                if(result && result.contents){
+                    contentData = JSON.parse(result.contents);
+                    updateCardContent(currentIndex);
+                } else {
+                    console.error("Invalid response from proxy");
+                    alert("Failed to load content. Invalid proxy response.");
+                }
+
             } catch (error) {
                 console.error("Error fetching Sector Data:", error);
                 alert("Failed to load content. Please try again later.");
@@ -180,13 +210,13 @@
             document.getElementById("card-title").textContent = content.title;
             document.getElementById("card-paragraph").textContent = content.paragraph;
             document.getElementById("card-author").textContent = content.author;
-            document.getElementById("prev-btn").disabled = index === 0;
+            document.getElementById("prev-btn").disabled = index=== 0;
             document.getElementById("next-btn").disabled = index === contentData.length - 1;
         }
 
         document.getElementById("prev-btn").addEventListener("click", () => { if (currentIndex > 0) updateCardContent(--currentIndex); });
         document.getElementById("next-btn").addEventListener("click", () => { if (currentIndex < contentData.length - 1) updateCardContent(++currentIndex); });
-        
+
         fetchData();
     </script>
 </body>
