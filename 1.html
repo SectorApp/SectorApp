@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout with Custom Fonts</title>
+    <style>
+        @font-face {
+            font-family: 'TT Fors Regular';
+            src: url('https://github.com/SectorApp/SectorApp/raw/main/Logo/TT%20Fors%20Trial%20Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'TT Fors Medium';
+            src: url('https://github.com/SectorApp/SectorApp/raw/main/Logo/TT%20Fors%20Trial%20Medium.ttf') format('truetype');
+            font-weight: medium;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'TT Fors Regular', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6, .main-heading, .preregister-button, .announcement-bar {
+            font-family: 'TT Fors Medium', sans-serif;
+        }
+
+        .parent {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto auto;
+            gap: 10px;
+            padding: 0px;
+        }
+
+        .announcement-bar,
+        .sector-logo,
+        .preregister-button,
+        .main-heading,
+        .main-image1 {
+            padding: 20px;
+            text-align: center;
+            border: none;
+        }
+
+        .announcement-bar {
+            grid-column: 1 / -1;
+            background-color: #da2824;
+            color: white;
+            padding: 10px 0;
+            border-radius: 0;
+            font-size: 0.9em;
+        }
+
+        .announcement-bar span {
+            font-weight: normal;
+        }
+
+        .announcement-bar a {
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .sector-logo {
+            grid-column: 1 / 2;
+            grid-row-start: 2;
+            background-color: transparent;
+            color: #2e7d32;
+            text-align: left;
+            padding: 0 10px;
+        }
+
+        .preregister-button {
+            grid-column: 2 / 3;
+            grid-row-start: 2;
+            background-color: transparent;
+            color: #ef6c00;
+            text-align: right;
+            padding: 10px;
+        }
+
+        .main-heading {
+            grid-column: 1 / -1;
+            grid-row-start: 3;
+            background-color: transparent;
+            color: #1b1b1b;
+            font-size: 4em;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .main-image1 {
+            grid-column: 1 / -1;
+            grid-row-start: 4;
+            background-color: #fce4ec;
+            color: #ad1457;
+        }
+
+        @media (max-width: 1200px) { /* Adjust for larger tablets */
+            .main-heading {
+                font-size: 3.5em;
+            }
+        }
+
+        @media (max-width: 992px) { /* Adjust for smaller tablets */
+            .main-heading {
+                font-size: 3.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .parent {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto auto auto;
+            }
+
+            .announcement-bar,
+            .main-heading,
+            .main-image1 {
+                grid-column: 1 / -1;
+            }
+
+            .main-heading {
+                font-size: 3em;
+            }
+
+            .sector-logo img {
+                max-width: 30%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-heading {
+                font-size: 2.5em;
+            }
+
+            .sector-logo img {
+                max-width: 40%;
+            }
+        }
+
+        @media (max-width: 375px){
+            .main-heading{
+                font-size: 2.2em;
+            }
+        }
+
+        .preregister-button button {
+            background-color: #da2824;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="announcement-bar">
+            <span>Discover Sector's Micro-Learning Hub! Access our 60-word educational content designed for quick learning. </span>
+            <a href="YOUR_LINK_HERE">Read Now</a>
+        </div>
+        <div class="sector-logo">
+            <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/a6d19f2b17ca4c439856659f36c9e7a9e738bcb7/Logo/Sector-Logo.svg" alt="Sector Logo" style="max-width: 15%; height: auto;">
+        </div>
+        <div class="preregister-button">
+            <button>Preregister</button>
+        </div>
+        <div class="main-heading">Learn More In Less Time.</div>
+        <div class="main-image1">Main Image 1</div>
+    </div>
+</body>
+</html>
