@@ -75,7 +75,7 @@
             margin: 5px 0;
             color: #da2824;
             transition: color 0.3s ease;
-            user-select: none; /* Prevent text selection */
+            user-select: none;
         }
          #card-title:hover {
             color: #b81c17;
@@ -92,7 +92,7 @@
             line-height: 1.5;
             margin: 5px 0;
             transition: opacity 0.3s ease;
-            user-select: none; /* Prevent text selection */
+            user-select: none;
         }
        .content p.loaded{
          opacity: 1;
@@ -101,7 +101,7 @@
             color: #999;
             font-size: 12px;
              transition: transform 0.3s ease;
-             user-select: none; /* Prevent text selection */
+             user-select: none;
         }
         .content .author:hover{
           transform: translateX(5px);
@@ -155,7 +155,7 @@
         }
         @media (max-width: 600px) {
             .card-container {
-                margin-top: 120px;
+                margin-top: 30px;
             }
 
             .bottom-nav {
@@ -199,6 +199,7 @@
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.6/dist/purify.min.js"></script>
 </head>
 <body>
     <div id="loading-screen">
@@ -213,7 +214,7 @@
                 <img id="card-image" src="" alt="Background Image">
             </div>
             <div class="small-logo">
-                <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Logo">
+                <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Small Logo">
             </div>
             <div class="logo-title-container">
                 <h4 id="card-title"></h4>
@@ -249,7 +250,6 @@
          */
         const dataService = {
             dataUrl: "https://api.allorigins.win/get?url=" + encodeURIComponent("https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/data.json"),
-
             /**
              * Fetches data from the specified URL, with enhanced error handling and data validation.
              * @returns {Promise<Array>} A promise that resolves to an array of content data, or rejects with an error.
@@ -270,7 +270,7 @@
                     // Parse the contents, with error handling.
                     try {
                         const parsedData = JSON.parse(result.contents);
-                         if (!Array.isArray(parsedData)) {
+                        if (!Array.isArray(parsedData)) {
                             console.error("Data structure error:", parsedData);
                             throw new Error("Data structure error: Expected an array of content items.");
                         }
@@ -280,24 +280,21 @@
                         throw new Error("Error parsing content data as JSON.");
                     }
 
-
-
                     // Further validation of individual data items.
                     for (const item of contentData) {
                         if (!item.image || !item.title || !item.paragraph || !item.author) {
                             console.warn("Missing required field in data item:", item);
                             //  Consider throwing an error here if missing fields are critical.  For now, we'll just warn.
                         }
-                         if (typeof item.image !== 'string' || typeof item.title !== 'string' || typeof item.paragraph !== 'string' || typeof item.author !== 'string'){
-                             throw new Error("Incorrect data type. Expected string.");
+                        if (typeof item.image !== 'string' || typeof item.title !== 'string' || typeof item.paragraph !== 'string' || typeof item.author !== 'string') {
+                            throw new Error("Incorrect data type. Expected string.");
                         }
                     }
                     return contentData;
-
                 } catch (error) {
                     console.error("Error fetching or processing data:", error);
-                    alert("Failed to load content. Please check your network connection and try again.  Details: " + error.message);
-                    throw error;
+                    // Improved error handling:  Don't use alert, return the error
+                    return Promise.reject(error); // Reject the promise with the error
                 }
             },
             preloadImages(data) {
@@ -326,9 +323,10 @@
 
 
                 this.cardImage.src = content.image;
-                this.cardTitle.textContent = content.title;
-                this.cardParagraph.textContent = content.paragraph;
-                this.cardAuthor.textContent = content.author;
+                // Sanitize the data before inserting it into the DOM
+                this.cardTitle.textContent = DOMPurify.sanitize(content.title);
+                this.cardParagraph.textContent = DOMPurify.sanitize(content.paragraph);
+                this.cardAuthor.textContent = DOMPurify.sanitize(content.author);
 
                 setTimeout(() => {
                     this.cardImage.classList.add('loaded');
@@ -362,11 +360,9 @@
         const loadingScreen = {
             element: document.getElementById('loading-screen'),
             duration: 3000, // 3 seconds
-
             show() {
                 this.element.classList.remove('hidden');
             },
-
             hide() {
                 setTimeout(() => {
                     this.element.classList.add('hidden');
@@ -379,7 +375,6 @@
          */
         async function main() {
             loadingScreen.show(); // Show loading screen
-
             try {
                 const data = await dataService.fetchData();
                 dataService.preloadImages(data);
@@ -388,6 +383,8 @@
             } catch (error) {
                 // Handle the error appropriately (e.g., display a user-friendly message).
                 console.error("Initialization error:", error);
+                alert("Failed to load content. Please check your network connection and try again.  Details: " + error.message);
+
             } finally {
                 loadingScreen.hide(); // Hide loading screen after 3 seconds
             }
