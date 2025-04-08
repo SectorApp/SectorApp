@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sector-Learn More In Less Time.</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            width: 100%;
+            height: 100%;
+            --color: #E1E1E1;
+            background-image: none;
+            background-color: #ffffff;
+            background-size: 55px 55px;
+        }
+        .top-logo {
+            margin-top: 6px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .top-logo img {
+            width: 80px;
+            height: auto;
+            margin-left: 20px;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0px;
+        }
+        .card {
+            width: 90%;
+            max-width: 350px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .image-container img.loaded {
+            opacity: 1;
+        }
+        .small-logo {
+            display: flex;
+            align-items: center;
+            margin: 5px 15px;
+        }
+        .small-logo img {
+            width: 50px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .logo-title-container {
+            padding: 0px 15px;
+            text-align: left;
+        }
+        #card-title {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #da2824;
+            transition: color 0.3s ease;
+            user-select: none;
+        }
+        #card-title:hover {
+            color: #b81c17;
+        }
+
+        .content {
+            padding: 0 15px 15px;
+            text-align: left;
+            flex-grow: 1;
+        }
+        .content p {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 5px 0;
+            transition: opacity 0.3s ease;
+            user-select: none;
+        }
+        .content p.loaded{
+            opacity: 1;
+        }
+        .content .author {
+            color: #999;
+            font-size: 12px;
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+        .content .author:hover{
+            transform: translateX(5px);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            background-color: white;
+        }
+        .nav-button {
+            background-color: white;
+            color: #f44336;
+            border: 1px solid #f44336;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 14px;
+        }
+        .nav-button:hover {
+            background-color: #da2824;
+            color: white;
+        }
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        @media (max-width: 600px) {
+            .card-container {
+                margin-top: 30px;
+            }
+
+            .bottom-nav {
+                margin-top: 10px;
+            }
+
+            .top-logo {
+                justify-content: center;
+            }
+            .top-logo img {
+                width: 100px;
+                margin-left: 0;
+            }
+        }
+
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #loading-screen img {
+            width: 150px;
+            height: auto;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* From Uiverse.io by andrei0x309 */
+        .input {
+            display: flex;
+            flex-direction: row;
+            width: fit-content;
+            background-color: #ffffff;
+            justify-content: center;
+            border-radius: 5px;
+            gap: 7.5px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0; /* Removed margin-bottom */
+            padding-left: 10px;
+            padding-right: 10px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        .value {
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            color: #333;
+            display: flex;
+            position: relative;
+            gap: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .value:not(:active):hover,
+        .active,
+        .value:focus {
+            background-color: #da2824;
+            color: white;
+        }
+
+        .value:focus,
+        .value:active {
+            background-color: #1a1f24;
+            outline: none;
+        }
+
+        .value::before {
+            content: "";
+            position: absolute;
+            top: 35px;
+            right: 0px;
+            width: 100%;
+            height: 1px;
+            background-color: #0a01303f;
+            border-radius: 5px;
+            opacity: 0;
+        }
+
+        .value:focus::before,
+        .value:active::before {
+            opacity: 1;
+        }
+
+        .value svg {
+            width: 25px;
+            height: 25px;
+            margin-top: 4px;
+            fill: #333;
+        }
+
+        .value svg.normal {
+            width: 25px;
+            height: 25px;
+            margin-top: 1px;
+            fill: #333;
+        }
+
+        .value:hover {
+            background-color: #da2824;
+            color: white;
+        }
+
+        .value:hover svg {
+            fill: white;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.6/dist/purify.min.js"></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Loading Logo">
+    </div>
+    <div class="top-logo">
+        <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Logo">
+    </div>
+    <div class="card-container">
+        <div class="card">
+            <div class="image-container">
+                <img id="card-image" src="" alt="Background Image">
+            </div>
+            <div class="small-logo">
+                <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Logo">
+            </div>
+            <div class="logo-title-container">
+                <h4 id="card-title"></h4>
+            </div>
+            <div class="content">
+                <p id="card-paragraph"></p>
+                <div id="card-author" class="author"></div>
+            </div>
+            <div class="navigation">
+                <button id="prev-btn" class="nav-button">Previous</button>
+                <button id="next-btn" class="nav-button">Next</button>
+            </div>
+             <div class="input">
+                <button class="value">
+                    <svg class="normal" viewBox="0 0 24 24">
+                    <path
+                        d="M9,13H15V19H18V10L12,5.5L6,10V19H9V13M4,21V9L12,3L20,9V21H4Z"
+                        fill="currentColor"
+                    ></path>
+                    </svg>
+                    Home
+                </button>
+                <button class="value">
+                    <svg
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xml:space="preserve"
+                    viewBox="0 0 100 58"
+                    version="1.1"
+                    >
+                    <g>
+                        <circle r="13.5" fill="currentColor" cy="13.5" cx="31.452"></circle>
+                        <path
+                        fill="currentColor"
+                        d="M32.153,56.771c2.<pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad><pad>661-10.485,7.516-19.379,13.92-25.685c-0.039-0.027-0.077-0.059-0.116-0.086h-29.01   C9.134,36.436,3.011,46.132,0,58h31.841L32.153,56.771z"
+                        ></path>
+                        </g>
+                    </g>
+                    </svg>
+                    Change Topic
+                </button>
+                <button class="value">
+                    <svg viewBox="0 0 24 24" class="normal">
+                    <path
+                        d="M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.87,17.38L11.24,20H12.76L13.13,17.39C14.32,17.14 15.37,16.5 16.14,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.39C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z"
+                        fill="currentColor"
+                    ></path>
+                    </svg>
+                    Research & Books
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const dataUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/data.json");
+        let contentData = [];
+        let currentIndex = 0;
+
+        // Function to preload an image
+        function preloadImage(url) {
+            const img = new Image();
+            img.src = url;
+        }
+
+        /**
+         * Module to handle data fetching and validation
+         */
+        const dataService = {
+            dataUrl: "https://api.allorigins.win/get?url=" + encodeURIComponent("https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/data.json"),
+            /**
+             * Fetches data from the specified URL, with enhanced error handling and data validation.
+             * @returns {Promise<Array>} A promise that resolves to an array of content data, or rejects with an error.
+             */
+            async fetchData() {
+                try {
+                    console.log('Fetching data from:', this.dataUrl); // Log the URL
+                    const response = await fetch(this.dataUrl);
+                    console.log('Response status:', response.status); // Log the response status
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        console.error('Fetch error details:', errorText); // Log detailed error
+                        throw new Error(`HTTP error! Status: ${response.status} URL: ${this.dataUrl} Details: ${errorText}`);
+                    }
+                    const result = await response.json();
+                    console.log('Response data:', result); // Log the entire result
+
+                    // Check for the existence of result and its contents.
+                    if (!result || !result.contents) {
+                        throw new Error("Invalid response structure: 'result' or 'result.contents' is missing.");
+                    }
+
+                    // Parse the contents, with error handling.
+                    try {
+                        const parsedData = JSON.parse(result.contents);
+                        if (!Array.isArray(parsedData)) {
+                            console.error("Data structure error:", parsedData);
+                            throw new Error("Data structure error: Expected an array of content items.");
+                        }
+                        contentData = parsedData;
+                    } catch (parseError) {
+                        console.error("Error parsing JSON:", parseError);
+                        throw new Error("Error parsing content data as JSON.");
+                    }
+
+                    // Further validation of individual data items.
+                    for (const item of contentData) {
+                        if (!item.image || !item.title || !item.paragraph || !item.author) {
+                            console.warn("Missing required field in data item:", item);
+                            //  Consider throwing an error here if missing fields are critical.  For now, we'll just warn.
+                        }
+                        if (typeof item.image !== 'string' || typeof item.title !== 'string' || typeof item.paragraph !== 'string' || typeof item.author !== 'string') {
+                            throw new Error("Incorrect data type. Expected string.");
+                        }
+                    }
+                    return contentData;
+                } catch (error) {
+                    console.error("Error fetching or processing data:", error);
+                    // Improved error handling:  Don't use alert, return the error
+                    return Promise.reject(error); // Reject the promise with the error
+                }
+            },
+            preloadImages(data) {
+                    data.forEach(item => preloadImage(item.image));
+            }
+        };
+
+        /**
+         * Module to handle updating the card UI.
+         */
+        const cardUI = {
+            cardImage: document.getElementById("card-image"),
+            cardTitle: document.getElementById("card-title"),
+            cardParagraph: document.getElementById("card-paragraph"),
+            cardAuthor: document.getElementById("card-author"),
+            prevButton: document.getElementById("prev-btn"),
+            nextButton: document.getElementById("next-btn"),
+
+            updateCardContent(index, data) {
+                if (!data || data.length === 0) return;
+                const content = data[index];
+
+                this.cardImage.classList.remove('loaded');
+                this.cardTitle.classList.remove('loaded');
+                this.cardParagraph.classList.remove('loaded');
+
+
+                this.cardImage.src = content.image;
+                // Sanitize the data before inserting it into the DOM
+                this.cardTitle.textContent = DOMPurify.sanitize(content.title);
+                this.cardParagraph.textContent = DOMPurify.sanitize(content.paragraph);
+                this.cardAuthor.textContent = DOMPurify.sanitize(content.author);
+
+                setTimeout(() => {
+                    this.cardImage.classList.add('loaded');
+                    this.cardTitle.classList.add('loaded');
+                    this.cardParagraph.classList.add('loaded');
+                    this.cardAuthor.classList.add('loaded');
+                    this.prevButton.disabled = index === 0;
+                    this.nextButton.disabled = index === data.length - 1;
+                }, 10);
+            },
+
+            setupNavigation(data) {
+                this.prevButton.addEventListener("click", () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        this.updateCardContent(currentIndex, data);
+                    }
+                });
+                this.nextButton.addEventListener("click", () => {
+                    if (currentIndex < data.length - 1) {
+                        currentIndex++;
+                        this.updateCardContent(currentIndex, data);
+                    }
+                });
+            }
+        };
+
+        /**
+         * Module to handle the loading screen.
+         */
+        const loadingScreen = {
+            element: document.getElementById('loading-screen'),
+            duration: 3000, // 3 seconds
+            show() {
+                this.element.classList.remove('hidden');
+            },
+            hide() {
+                setTimeout(() => {
+                    this.element.classList.add('hidden');
+                }, this.duration);
+            },
+        };
+
+        /**
+         * Main application logic.
+         */
+        async function main() {
+            loadingScreen.show(); // Show loading screen
+            try {
+                const data = await dataService.fetchData();
+                dataService.preloadImages(data);
+                cardUI.setupNavigation(data);
+                cardUI.updateCardContent(currentIndex, data);
+            } catch (error) {
+                // Handle the error appropriately (e.g., display a user-friendly message).
+                console.error("Initialization error:", error);
+                alert("Failed to load content. Please check your network connection and try again.  Details: " + error.message);
+
+            } finally {
+                loadingScreen.hide(); // Hide loading screen after 3 seconds
+            }
+        }
+
+        // Start the application.
+        main();
+    </script>
+</body>
+</html>
