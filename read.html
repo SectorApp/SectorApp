@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Content Card</title>
+    <title>Sector App Read Now</title>
     <style>
         body {
             display: flex;
@@ -13,13 +13,21 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
+            width: 100%;
+            height: 100%;
+            --color: #E1E1E1;
+            background-image: none;
+            background-color: #ffffff;
+            background-size: 55px 55px;
         }
         .top-logo {
             margin-top: 6px;
             width: 100%;
             display: flex;
             justify-content: flex-start;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
         }
         .top-logo img {
             width: 80px;
@@ -42,6 +50,9 @@
             background-color: white;
             display: flex;
             flex-direction: column;
+            animation: slideIn 0.5s ease-in-out forwards, fadeIn 1s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
         .image-container {
             width: 100%;
@@ -55,16 +66,20 @@
             transition: opacity 0.5s ease-in-out;
         }
         .image-container img.loaded {
-             opacity: 1;
+            opacity: 1;
         }
         .small-logo {
             display: flex;
             align-items: center;
             margin: 5px 15px;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 0.5s;
         }
         .small-logo img {
             width: 50px;
             height: auto;
+            margin-left: 10px;
         }
         .logo-title-container {
             padding: 0px 15px;
@@ -76,8 +91,11 @@
             color: #da2824;
             transition: color 0.3s ease;
             user-select: none;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 0.7s;
         }
-         #card-title:hover {
+        #card-title:hover {
             color: #b81c17;
         }
 
@@ -85,6 +103,9 @@
             padding: 0 15px 15px;
             text-align: left;
             flex-grow: 1;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 0.9s;
         }
         .content p {
             color: #333;
@@ -94,17 +115,20 @@
             transition: opacity 0.3s ease;
             user-select: none;
         }
-       .content p.loaded{
-         opacity: 1;
-       }
+        .content p.loaded{
+            opacity: 1;
+        }
         .content .author {
             color: #999;
             font-size: 12px;
-             transition: transform 0.3s ease;
-             user-select: none;
+            transition: transform 0.3s ease;
+            user-select: none;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 1.1s;
         }
         .content .author:hover{
-          transform: translateX(5px);
+            transform: translateX(5px);
         }
 
         .navigation {
@@ -113,6 +137,9 @@
             padding: 10px;
             border-top: 1px solid #eee;
             background-color: white;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 1.3s;
         }
         .nav-button {
             background-color: white;
@@ -121,53 +148,59 @@
             padding: 8px 16px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s ease-in-out;
             font-size: 14px;
         }
         .nav-button:hover {
-            background-color: #f44336;
+            background-color: #da2824;
             color: white;
+            border-radius: 0;
+            transform: scale(1.05);
         }
         .nav-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            transform: scale(1);
         }
-        .bottom-nav {
-            display: flex;
-            justify-content: space-around;
-            width: 330px;
-            padding: 10px;
-            background: white;
-            border: 1px solid #da2824;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-top: 5px;
-             transition: transform 0.2s ease-in-out;
-        }
-
-       .bottom-nav:hover {
-          transform: scale(1.05);
-        }
-        .bottom-nav i {
-            font-size: 20px;
-            color: #da2824;
-            cursor: pointer;
+        .nav-button:active{
+           transform: scale(0.95);
         }
         @media (max-width: 600px) {
             .card-container {
                 margin-top: 30px;
             }
-
-            .bottom-nav {
-                margin-top: 10px;
+            .card {
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
             }
-
             .top-logo {
                 justify-content: center;
             }
             .top-logo img {
                 width: 100px;
                 margin-left: 0;
+            }
+            .additional-buttons {
+                flex-direction: column;
+            }
+            .additional-button {
+                margin: 5px auto;
+                width: 90%;
+                text-align: center;
+            }
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 90%;
+            }
+            .additional-buttons {
+                flex-direction: column;
+            }
+            .additional-button {
+                margin: 5px auto;
+                width: 80%;
+                text-align: center;
             }
         }
 
@@ -189,16 +222,85 @@
         #loading-screen img {
             width: 150px;
             height: auto;
+            animation: pulse 2s infinite;
         }
 
         #loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
         }
+
+        .additional-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 0px;
+            width: 100%;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 1.5s;
+        }
+        .additional-button {
+            background-color: white;
+            color: #f44336;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s ease-in-out;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .additional-button:hover,
+        .additional-button:active {
+            background-color: #da2824;
+            color: white;
+            border-radius: 0;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        .additional-button:active {
+             transform: translateY(0);
+        }
+
+        .additional-button i {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        #research-books-button {
+            margin-right: 25px;
+        }
+
+        .separator {
+            width: 100%;
+            height: 1px;
+            background-color: #eee;
+            margin-top: 0;
+            margin-bottom: 0;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); }
+            to { transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
     </style>
-    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
-    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
-    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.6/dist/purify.min.js"></script>
 </head>
 <body>
@@ -214,7 +316,7 @@
                 <img id="card-image" src="" alt="Background Image">
             </div>
             <div class="small-logo">
-                <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Small Logo">
+                <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Logo">
             </div>
             <div class="logo-title-container">
                 <h4 id="card-title"></h4>
@@ -227,12 +329,19 @@
                 <button id="prev-btn" class="nav-button">Previous</button>
                 <button id="next-btn" class="nav-button">Next</button>
             </div>
+            <div class="separator"></div>
+            <div class="additional-buttons">
+                <button class="additional-button" id="home-button">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="additional-button" id="change-topic-button">
+                    <i class="fas fa-list-ul"></i> Change Topic
+                </button>
+                <button class="additional-button" id="research-books-button">
+                    <i class="fas fa-book"></i> Research & Books
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="bottom-nav">
-        <i class="fi fi-rr-house-blank"></i>
-        <i class="fi fi-rr-search-alt"></i>
-        <i class="fi fi-rr-memo-pad"></i>
     </div>
     <script>
         const dataUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/data.json");
@@ -256,11 +365,16 @@
              */
             async fetchData() {
                 try {
+                    console.log('Fetching data from:', this.dataUrl); // Log the URL
                     const response = await fetch(this.dataUrl);
+                    console.log('Response status:', response.status); // Log the response status
                     if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
+                        const errorText = await response.text();
+                        console.error('Fetch error details:', errorText); // Log detailed error
+                        throw new Error(`HTTP error! Status: ${response.status} URL: ${this.dataUrl} Details: ${errorText}`);
                     }
                     const result = await response.json();
+                    console.log('Response data:', result); // Log the entire result
 
                     // Check for the existence of result and its contents.
                     if (!result || !result.contents) {
@@ -298,7 +412,7 @@
                 }
             },
             preloadImages(data) {
-                 data.forEach(item => preloadImage(item.image));
+                    data.forEach(item => preloadImage(item.image));
             }
         };
 
