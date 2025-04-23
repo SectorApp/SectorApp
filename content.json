@@ -1,0 +1,27 @@
+[
+  {
+    "mainImage": "https://placehold.co/600x400/EEE/31343C",
+    "heading": "First Day of Engineering",
+    "paragraph": "Today marks the beginning of an exciting journey into the world of engineering. Students are introduced to the fundamental principles that will shape their future careers."
+  },
+  {
+    "mainImage": "https://placehold.co/600x400/EEE/31343C",
+    "heading": "Exploring Robotics",
+    "paragraph": "Students get hands-on experience with robotics, learning about mechanical design, electronic control systems, and software programming. They build and program their own robots!"
+  },
+  {
+    "mainImage": "https://placehold.co/600x400/EEE/31343C",
+    "heading": "The Magic of Algorithms",
+    "paragraph": "This session dives into the world of algorithms, the step-by-step instructions that power computer programs. Students learn how to design efficient algorithms to solve complex problems."
+  },
+  {
+    "mainImage": "https://placehold.co/600x400/EEE/31343C",
+    "heading": "Building the Future with Civil Engineering",
+    "paragraph": "Students explore the world of civil engineering, learning how to design and construct the infrastructure that shapes our cities and towns."
+  },
+  {
+    "mainImage": "https://placehold.co/600x400/EEE/31343C",
+    "heading": "Electrical Engineering: Powering the World",
+    "paragraph": "From microchips to power grids, electrical engineering is essential to modern life. Students discover the principles behind electricity, electronics, and electromagnetism."
+  }
+]
