@@ -1,9 +1,13 @@
-[
-    {
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdgPR7j3WAR-DGDeFww3s9Raz-R9fvzA3Cog&s",
-        "logo": "/api/placeholder/50/50",
-        "title": "Sector App: Simplifying Learning with Micro-Summaries",
-        "paragraph": "Sector App is an educational platform that provides 60-word summaries for complex topics in engineering, medicine, and civil services. Designed for students and professionals, it delivers concise, easy-to-understand insights, like a short-news app for learning. Sector also offers research books and eBooks, ensuring quick, accessible knowledge without the need for lengthy reading.",
-        "author": "Short by SectorApplications"
-    }
-]
+    [
+      {
+        "title": "Amazing Product",
+        "imageUrl": "https://placehold.co/300x250/EEE/31343C",
+        "text": "Check out our amazing product!"
+      },
+      {
+        "title": "Learn More",
+        "imageUrl": "https://placehold.co/300x250/EEE/31343C",
+        "text": "Visit our website to learn more."
+      }
+    ]
+    
