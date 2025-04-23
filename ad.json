@@ -1,13 +1,22 @@
-    [
-      {
-        "title": "Amazing Product",
-        "imageUrl": "https://placehold.co/300x250/EEE/31343C",
-        "text": "Check out our amazing product!"
-      },
-      {
-        "title": "Learn More",
-        "imageUrl": "https://placehold.co/300x250/EEE/31343C",
-        "text": "Visit our website to learn more."
-      }
-    ]
-    
+[
+  {
+    "mainImage": "https://placehold.co/600x400/FCC/000?text=Ad+1",
+    "heading": "Join the Engineering Expo!",
+    "paragraph": "Explore the latest innovations in engineering and technology. Register now to attend workshops, live demos, and networking sessions."
+  },
+  {
+    "mainImage": "https://placehold.co/600x400/FCC/000?text=Ad+2",
+    "heading": "Enroll in Our AI Bootcamp",
+    "paragraph": "Master the fundamentals of Artificial Intelligence in just 8 weeks. Hands-on projects and mentorship included. Limited seats!"
+  },
+  {
+    "mainImage": "https://placehold.co/600x400/FCC/000?text=Ad+3",
+    "heading": "Get 50% Off Engineering Books",
+    "paragraph": "Upgrade your bookshelf with the best engineering books across disciplines. Use code ENGINEER50 at checkout."
+  },
+  {
+    "mainImage": "https://placehold.co/600x400/FCC/000?text=Ad+4",
+    "heading": "Internship Opportunities Available",
+    "paragraph": "Apply now for top-tier internships in tech and engineering firms. Gain real-world experience and boost your career."
+  }
+]
