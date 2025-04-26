@@ -17,8 +17,9 @@
             box-sizing: border-box;
             --color: #E1E1E1;
             background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent),
-                              linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
+                linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
             background-size: 55px 55px;
+            position: relative;
         }
 
         .container {
@@ -33,6 +34,12 @@
             margin-top: 50px;
             position: relative;
             margin-bottom: 0px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
         }
 
         .main-image {
@@ -68,17 +75,18 @@
             border: 1px solid red;
             height: 15px;
         }
-        .engineering-container{
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #ffffff;
-          border-radius: 15px;
-          padding: 1px 6px;
-          margin-bottom: 10px;
-          margin-left: 10px;
-          border: 1px solid red;
-          height: 15px;
+
+        .engineering-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 1px 6px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            border: 1px solid red;
+            height: 15px;
         }
 
         .tag {
@@ -88,7 +96,8 @@
             display: flex;
             align-items: center;
         }
-        .tag img{
+
+        .tag img {
             width: 30px;
             height: auto;
         }
@@ -133,18 +142,24 @@
             bottom: auto;
             left: auto;
             transform: none;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
+        .bottom-bar:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
 
         .button {
             padding: 10px 20px;
             border-radius: 30px;
             font-weight: bold;
-            background-color:  #ffffff;
+            background-color: #ffffff;
             color: #da2824;
             cursor: pointer;
             font-size: 12px;
             transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+            border: none;
         }
 
         .button:hover {
@@ -152,18 +167,30 @@
             background-color: #f8f8f8;
         }
 
-        .previous, .next {
-            border: 2px solid red;
+        .button:active {
+            background-color: #da2824;
+            color: white;
         }
 
-        .previous:active, .next:active {
-            background-color: red;
+        .previous,
+        .next {
+            border: 2px solid #da2824;
+        }
+
+        .previous:active,
+        .next:active {
+            background-color: #da2824;
             color: white;
         }
 
         .share {
             border: 2px solid yellow;
             color: purple;
+        }
+
+        .share:active{
+            background-color: purple;
+            color: white;
         }
 
         .logo {
@@ -176,7 +203,76 @@
             height: auto;
         }
 
-        /* Styles for the Share Popup */
+        .dropdown {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .dropdown-button {
+            background-color: transparent;
+            color: grey;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .dropdown-button::after {
+            content: "≡";
+            font-size: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0;
+        }
+
+        .dropdown-button:hover {
+            transform: scale(1.1);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 210px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+            border: 1px solid #da2824;
+        }
+
+        .dropdown:hover .dropdown-content, .dropdown.show .dropdown-content {
+            display: block;
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8f8f8;
+            color: #da2824;
+            transform: translateX(5px);
+        }
+
+        .dropdown:hover .dropdown-button {
+            color: #000;
+        }
+
         #share-popup {
             display: none;
             position: fixed;
@@ -191,17 +287,16 @@
             width: 90%;
             max-width: 400px;
             text-align: center;
-            /* max-height: 80vh;  Remove max-height and overflow, handle with flexbox */
-            /* display: flex;  */
             flex-direction: column;
-            justify-content: space-between; /* Space out elements vertically */
-            align-items: stretch; /* Stretch items to container width */
+            justify-content: space-between;
+            align-items: stretch;
             box-sizing: border-box;
         }
 
         #share-popup h2 {
             margin-bottom: 15px;
             color: #d12424;
+            font-size: 1.4em;
         }
 
         #share-preview {
@@ -220,30 +315,37 @@
             margin-bottom: 10px;
         }
 
+        #share-preview h3{
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5em;
+        }
+
         #share-options {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Centers items horizontally */
-            gap: 15px; /* Increased gap for better spacing */
-            margin-bottom: 0; /* Removed bottom margin, using space-between on parent */
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 0;
         }
 
         #share-options button {
             background-color: #ffffff;
             border: 1px solid #ddd;
-            border-radius: 50%; /* Make buttons round */
-            padding: 15px;      /* Increased padding */
+            border-radius: 50%;
+            padding: 15px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            flex: 0 0 auto;    /* Don't grow, don't shrink, auto size */
-            width: 70px;       /* Fixed width and height for roundness */
+            flex: 0 0 auto;
+            width: 70px;
             height: 70px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 5px;
-            font-size: 0.8em;  /* Slightly smaller font */
+            font-size: 0.8em;
             box-sizing: border-box;
         }
 
@@ -251,8 +353,8 @@
             background-color: #f8f8f8;
         }
 
-        #share-options button img{
-            width: 30px;  /* Increased icon size */
+        #share-options button img {
+            width: 30px;
             height: 30px;
         }
 
@@ -300,15 +402,28 @@
 </head>
 <body>
     <img class="logo" src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Main Logo">
+    <div class="dropdown">
+        <button class="dropdown-button"></button>
+        <div class="dropdown-content" id="myDropdown">
+            <span style="color: #da2824; padding: 12px 16px; display: block; font-size: 14px; font-weight: bold;">Choose your field to read</span>
+            <a href="#" style="color: black;">al1r</a>
+            <a href="#" style="color: black;">al2r</a>
+            <a href="#" style="color: black;">al3r</a>
+            <a href="#" style="color: black;">al4r</a>
+            <a href="#" style="color: black;">al5r</a>
+            <a href="#" style="color: black;">al6r</a>
+            <a href="#" style="color: black;">al7r</a>
+        </div>
+    </div>
     <div class="container">
         <div class="main-image">
             <img id="main-image-content" src="" alt="Cartoon landscape">
         </div>
         <div style="display: flex;">
             <div class="tag-container" style="align-items: center;">
-              <div class="tag">
-                <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Logo">
-              </div>
+                <div class="tag">
+                    <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg" alt="Logo">
+                </div>
             </div>
             <div class="engineering-container" style="align-items: center;">
                 <div class="tag" style="color: red; font-size: 7px; font-weight: bold;">Engineering</div>
@@ -358,148 +473,171 @@
     </div>
 
     <script>
-      let currentIndex = 0;
-      let contentArray = [];
-      let adsArray = [];
-      let adIndex = 0;
-      const adInterval = 4;
-      let adLoop = true;
+        let currentIndex = 0;
+        let contentArray = [];
+        let adsArray = [];
+        let adIndex = 0;
+        const adInterval = 4;
+        let adLoop = true;
 
-      fetch('https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/content.json')
-        .then(response => response.json())
-        .then(contentData => {
-          contentArray = contentData;
-          return fetch('https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/ad.json');
-        })
-        .then(response => response.json())
-        .then(adsData => {
-          adsArray = adsData;
-          const mergedData = [];
-          let contentCount = 0;
+        fetch('https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/content.json')
+            .then(response => response.json())
+            .then(contentData => {
+                contentArray = contentData;
+                return fetch('https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/ad.json');
+            })
+            .then(response => response.json())
+            .then(adsData => {
+                adsArray = adsData;
+                const mergedData = [];
+                let contentCount = 0;
 
-          contentArray.forEach(contentItem => {
-            mergedData.push(contentItem);
-            contentCount++;
+                contentArray.forEach(contentItem => {
+                    mergedData.push(contentItem);
+                    contentCount++;
 
-            if (contentCount === adInterval) {
-              if (adsArray.length > 0) {
-                mergedData.push(adsArray[adIndex]);
-                adIndex = (adIndex + 1) % adsArray.length;
-              } else if (adLoop) {
-                adIndex = 0;
-                mergedData.push(adsArray[adIndex]);
-              }
-              contentCount = 0;
+                    if (contentCount === adInterval) {
+                        if (adsArray.length > 0) {
+                            mergedData.push(adsArray[adIndex]);
+                            adIndex = (adIndex + 1) % adsArray.length;
+                        } else if (adLoop) {
+                            adIndex = 0;
+                            mergedData.push(adsArray[adIndex]);
+                        }
+                        contentCount = 0;
+                    }
+                });
+                contentArray = mergedData;
+                const urlParams = new URLSearchParams(window.location.search);
+                const itemIndex = urlParams.get('item');
+                if (itemIndex) {
+                    currentIndex = parseInt(itemIndex);
+                    if (currentIndex >= contentArray.length) {
+                        currentIndex = contentArray.length - 1;
+                    } else if (currentIndex < 0) {
+                        currentIndex = 0;
+                    }
+                }
+                loadContent(currentIndex);
+            })
+            .catch(error => console.error('Error fetching content:', error));
+
+        function loadContent(index) {
+            if (index < 0) {
+                index = contentArray.length - 1;
+            } else if (index >= contentArray.length) {
+                index = 0;
             }
-          });
-          contentArray = mergedData;
-          const urlParams = new URLSearchParams(window.location.search);
-          const itemIndex = urlParams.get('item');
-          if (itemIndex) {
-            currentIndex = parseInt(itemIndex);
-             if(currentIndex >= contentArray.length){
-                currentIndex = contentArray.length -1;
-            }
-            else if(currentIndex < 0){
-                currentIndex = 0;
-            }
-          }
-          loadContent(currentIndex);
-        })
-        .catch(error => console.error('Error fetching content:', error));
+            currentIndex = index;
+            const url = new URL(window.location.href);
+            url.searchParams.set('item', currentIndex);
+            window.history.pushState({
+                path: url.href
+            }, '', url);
 
-      function loadContent(index) {
-        if (index < 0) {
-          index = contentArray.length - 1;
-        } else if (index >= contentArray.length) {
-          index = 0;
+            const currentItem = contentArray[index];
+            document.getElementById('main-image-content').src = currentItem.mainImage;
+            document.getElementById('heading-content').textContent = currentItem.heading;
+            document.getElementById('paragraph-content').textContent = currentItem.paragraph;
         }
-        currentIndex = index;
-        const url = new URL(window.location.href);
-        url.searchParams.set('item', currentIndex);
-        window.history.pushState({ path: url.href }, '', url);
 
-        const currentItem = contentArray[index];
-        document.getElementById('main-image-content').src = currentItem.mainImage;
-        document.getElementById('heading-content').textContent = currentItem.heading;
-        document.getElementById('paragraph-content').textContent = currentItem.paragraph;
-      }
+        document.querySelector('.next').addEventListener('click', () => {
+            loadContent(currentIndex + 1);
+        });
 
-      document.querySelector('.next').addEventListener('click', () => {
-        loadContent(currentIndex + 1);
-      });
+        document.querySelector('.previous').addEventListener('click', () => {
+            loadContent(currentIndex - 1);
+        });
 
-      document.querySelector('.previous').addEventListener('click', () => {
-        loadContent(currentIndex - 1);
-      });
+        const dropdownButton = document.querySelector('.dropdown-button');
+        const dropdownContent = document.getElementById('myDropdown');
+        const dropdownLinks = document.querySelectorAll('.dropdown-content a');
 
-      const shareButton = document.querySelector('.share');
-      const sharePopup = document.getElementById('share-popup');
-      const popupClose = document.querySelector('.popup-close');
-      const shareImagePreview = document.getElementById('share-image-preview');
-      const shareHeadingPreview = document.getElementById('share-heading-preview');
-      const shareMessageInput = document.getElementById('share-message');
+        function toggleDropdown() {
+            dropdownContent.classList.toggle('show');
+        }
 
-      //  Added  Event Listener for share button
-      shareButton.addEventListener('click', () => {
-          const currentItem = contentArray[currentIndex];
-          shareImagePreview.src = currentItem.mainImage;
-          shareHeadingPreview.textContent = currentItem.heading;
-          shareMessageInput.value = `Hey, I found this Sector short about ${currentItem.heading}. Check it out!`;
-          sharePopup.style.display = 'block';
-      });
+        dropdownButton.addEventListener('click', toggleDropdown);
 
-      popupClose.addEventListener('click', () => {
-          sharePopup.style.display = 'none';
-      });
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                dropdownContent.classList.remove('show');
+            });
+        });
 
-    function generateShareMessage(heading, url) {
-        return `Hey, I found this Sector short about ${heading}. Check it out! ${url}`;
-    }
+        document.addEventListener('click', (event) => {
+            if (!dropdownContent.contains(event.target) && !dropdownButton.contains(event.target)) {
+                dropdownContent.classList.remove('show');
+            }
+        });
 
-      document.getElementById('share-twitter').addEventListener('click', () => {
-          const currentItem = contentArray[currentIndex];
-          const currentUrl = window.location.href;
-          const shareText = encodeURIComponent(generateShareMessage(currentItem.heading, currentUrl));
-          const twitterUrl = `https://twitter.com/intent/tweet?text=${shareText}`;
-          window.open(twitterUrl, '_blank');
-          sharePopup.style.display = 'none';
-      });
 
-      document.getElementById('share-whatsapp').addEventListener('click', () => {
-          const currentItem = contentArray[currentIndex];
+        const shareButton = document.querySelector('.share');
+        const sharePopup = document.getElementById('share-popup');
+        const popupClose = document.querySelector('.popup-close');
+        const shareImagePreview = document.getElementById('share-image-preview');
+        const shareHeadingPreview = document.getElementById('share-heading-preview');
+        const shareMessageInput = document.getElementById('share-message');
+
+        shareButton.addEventListener('click', () => {
+            const currentItem = contentArray[currentIndex];
+            shareImagePreview.src = currentItem.mainImage;
+            shareHeadingPreview.textContent = currentItem.heading;
+            shareMessageInput.value = `Hey, I found this Sector short about ${currentItem.heading}. Check it out!`;
+            sharePopup.style.display = 'block';
+        });
+
+        popupClose.addEventListener('click', () => {
+            sharePopup.style.display = 'none';
+        });
+
+        function generateShareMessage(heading, url) {
+            return `Hey, I found this Sector short about ${heading}. Check it out! ${url}`;
+        }
+
+        document.getElementById('share-twitter').addEventListener('click', () => {
+            const currentItem = contentArray[currentIndex];
             const currentUrl = window.location.href;
-          const shareText = encodeURIComponent(generateShareMessage(currentItem.heading, currentUrl));
-          const whatsappUrl = `https://wa.me/?text=${shareText}`;
-          window.open(whatsappUrl, '_blank');
-          sharePopup.style.display = 'none';
-      });
+            const shareText = encodeURIComponent(generateShareMessage(currentItem.heading, currentUrl));
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${shareText}`;
+            window.open(twitterUrl, '_blank');
+            sharePopup.style.display = 'none';
+        });
 
-      document.getElementById('share-email').addEventListener('click', () => {
-          const currentItem = contentArray[currentIndex];
+        document.getElementById('share-whatsapp').addEventListener('click', () => {
+            const currentItem = contentArray[currentIndex];
             const currentUrl = window.location.href;
-          const shareText = generateShareMessage(currentItem.heading, currentUrl);
-          const emailSubject = 'Check out this Edu Short!';
-          const emailBody = shareText;
-          const mailtoUrl = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-          window.open(mailtoUrl, '_blank');
-          sharePopup.style.display = 'none';
-      });
+            const shareText = encodeURIComponent(generateShareMessage(currentItem.heading, currentUrl));
+            const whatsappUrl = `https://wa.me/?text=${shareText}`;
+            window.open(whatsappUrl, '_blank');
+            sharePopup.style.display = 'none';
+        });
 
-      document.getElementById('share-copy').addEventListener('click', () => {
-          const currentItem = contentArray[currentIndex];
+        document.getElementById('share-email').addEventListener('click', () => {
+            const currentItem = contentArray[currentIndex];
             const currentUrl = window.location.href;
-          const copyText = generateShareMessage(currentItem.heading, currentUrl);
-          navigator.clipboard.writeText(copyText).then(() => {
-              alert('Message copied to clipboard!');
-              sharePopup.style.display = 'none';
-          });
-      });
+            const shareText = generateShareMessage(currentItem.heading, currentUrl);
+            const emailSubject = 'Check out this Edu Short!';
+            const emailBody = shareText;
+            const mailtoUrl = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            window.open(mailtoUrl, '_blank');
+            sharePopup.style.display = 'none';
+        });
 
-      document.getElementById('share-instagram').addEventListener('click', () => {
-          alert('Copy image & caption to share on Instagram.');
-          sharePopup.style.display = 'none';
-      });
+        document.getElementById('share-copy').addEventListener('click', () => {
+            const currentItem = contentArray[currentIndex];
+            const currentUrl = window.location.href;
+            const copyText = generateShareMessage(currentItem.heading, currentUrl);
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert('Message copied to clipboard!');
+                sharePopup.style.display = 'none';
+            });
+        });
+
+        document.getElementById('share-instagram').addEventListener('click', () => {
+            alert('Copy image & caption to share on Instagram.');
+            sharePopup.style.display = 'none';
+        });
     </script>
 </body>
 </html>
