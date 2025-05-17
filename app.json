@@ -1,0 +1,82 @@
+[
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=AI+Basics",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "Getting Started with AI",
+"paragraph": "Artificial Intelligence is transforming industries. Students explore its basic concepts including machine learning, neural networks, and real-world applications.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=Data+Structures",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "Understanding Data Structures",
+"paragraph": "Data structures like arrays, stacks, and trees are essential for programming. Students learn how to use them to organize and manage data efficiently.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=Cloud+Computing",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "What is Cloud Computing?",
+"paragraph": "Cloud computing enables access to computing resources via the internet. Students learn about services like IaaS, PaaS, and SaaS in modern tech stacks.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=Cyber+Security",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "Introduction to Cybersecurity",
+"paragraph": "Cybersecurity protects systems from digital attacks. Students are introduced to encryption, firewalls, malware, and ethical hacking basics.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=Python+Programming",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "Why Learn Python?",
+"paragraph": "Python is versatile and beginner-friendly. Students start writing their first programs, working with syntax, variables, loops, and functions.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=Web+Development",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "Basics of Web Development",
+"paragraph": "Learn the fundamentals of creating websites using HTML, CSS, and JavaScript. Students build their first responsive webpage.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=Mobile+Apps",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "Developing Mobile Apps",
+"paragraph": "Explore how mobile apps are built. Students learn the app lifecycle, UI design principles, and get introduced to Flutter and Dart.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=Design+Thinking",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "Design Thinking in Engineering",
+"paragraph": "Design thinking helps solve complex problems with creativity. Students explore empathy, ideation, and prototyping through real-world scenarios.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=Electronics",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "Exploring Basic Electronics",
+"paragraph": "Students get hands-on with circuits, resistors, capacitors, and learn how electronic devices are built and function in daily life.",
+"author": "By Sector Team"
+},
+{
+"image": "https://placehold.co/600x400/EEE/31343C?text=3D+Printing",
+"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
+"tag": "#Education",
+"heading": "3D Printing: Design to Reality",
+"paragraph": "Learn how 3D printing brings digital designs to life. Students explore modeling software and print custom prototypes.",
+"author": "By Sector Team"
+}
+]
