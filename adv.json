@@ -1,50 +1,51 @@
 [
-{
+  {
     "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
     "tagText": "ad",
-    "title": "Join the Engineering Expo!『𝙖𝙙』",
-    "bodyText": "Explore the latest innovations in engineering and technology. Register now to attend workshops, live demos, and networking sessions. ad is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "title": "Join the Engineering Expo! 『𝙖𝙙』",
+    "bodyText": "Explore cutting-edge innovations in engineering. Attend live demos, workshops, and connect with industry leaders. Reserve your spot today!",
     "authorAttribution": "Sector."
   },
   {
     "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
     "tagText": "ad",
-    "title": "Enroll in Our AI Bootcamp Unlocking the World of Numbers",
-    "bodyText": "ad is the Master the fundamentals of Artificial Intelligence in just 8 weeks. Hands-on projects and mentorship included. Limited seats! language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
-    "authorAttribution": "revanth."
-  },  
-  {
-    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
-    "tagText": "ad",
-    "title": "Unlocking the World of Numbers",
-    "bodyText": "ad is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
-    "authorAttribution": "Sector."
-  },
-{
-    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
-    "tagText": "ad",
-    "title": "『𝙖𝙙』Get 50% Off Engineering Books Unlocking the World of Numbers",
-    "bodyText": "ad is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
-    "authorAttribution": "Sector."
+    "title": "Enroll in Our AI Bootcamp",
+    "bodyText": "Master the fundamentals of Artificial Intelligence in just 8 weeks. Get hands-on experience with real projects and expert mentorship. Limited seats available!",
+    "authorAttribution": "Revanth."
   },
   {
     "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
     "tagText": "ad",
     "title": "Unlocking the World of Numbers",
-    "bodyText": "ad is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
-    "authorAttribution": "revanth."
-  },  
+    "bodyText": "Math is the language of the universe. Discover patterns, logic, and elegant equations that shape the modern world.",
+    "authorAttribution": "Sector."
+  },
   {
     "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
     "tagText": "ad",
-    "title": "Unlocking the World of Numbers",
-    "bodyText": "ad is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "title": "『𝙖𝙙』 Get 50% Off Engineering Books!",
+    "bodyText": "Upgrade your technical knowledge with top-rated books in electronics, mechanical, and computer engineering. Offer valid this month only.",
     "authorAttribution": "Sector."
-  },{
+  },
+  {
     "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
     "tagText": "ad",
-    "title": "Unlocking the World of Numbers",
-    "bodyText": "ad is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "title": "Crack Exams with Sector Study Packs",
+    "bodyText": "Get curated study material for GATE, ESE, and other competitive exams. Sector Study Packs make preparation easier and more effective.",
+    "authorAttribution": "Revanth."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "ad",
+    "title": "Launch Your Tech Career",
+    "bodyText": "Attend our virtual career fair featuring startups and MNCs hiring engineers and developers. Build your future with Sector.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "ad",
+    "title": "Advance with Sector Online Courses",
+    "bodyText": "Learn Python, data science, and machine learning at your pace. Affordable, expert-taught, and designed for engineering students.",
     "authorAttribution": "Sector."
   }
 ]
