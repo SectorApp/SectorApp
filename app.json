@@ -1,82 +1,176 @@
 [
+  {
+    "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Engineering",
+    "title": "First Day of Engineering",
+    "bodyText": "Today marks the beginning of an exciting journey into the world of engineering. Students are introduced to the fundamental principles that will shape their future careers. This foundational knowledge will empower them to innovate and solve real-world problems as they progress in their studies.",
+    "authorAttribution": "Revanth."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "revanth."
+  },  
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
 {
-"image": "https://i.gadgets360cdn.com/large/apple_music_1_1724756955887.jpg",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "Getting Started with AI",
-"paragraph": "Artificial Intelligence is transforming industries. Students explore its basic concepts including machine learning, neural networks, and real-world applications.",
-"author": "By Sector Team"
-},
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "revanth."
+  },  
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },{
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "revanth."
+  },  
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
 {
-"image": "https://i.gadgets360cdn.com/large/apple_music_1_1724756955887.jpg",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "Understanding Data Structures",
-"paragraph": "Data structures like arrays, stacks, and trees are essential for programming. Students learn how to use them to organize and manage data efficiently.",
-"author": "By Sector Team"
-},
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "revanth."
+  },  
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "revanth."
+  },  
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
 {
-"image": "https://i.gadgets360cdn.com/large/apple_music_1_1724756955887.jpg",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "What is Cloud Computing?",
-"paragraph": "Cloud computing enables access to computing resources via the internet. Students learn about services like IaaS, PaaS, and SaaS in modern tech stacks.",
-"author": "By Sector Team"
-},
-{
-"image": "https://placehold.co/600x400/EEE/31343C?text=Cyber+Security",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "Introduction to Cybersecurity",
-"paragraph": "Cybersecurity protects systems from digital attacks. Students are introduced to encryption, firewalls, malware, and ethical hacking basics.",
-"author": "By Sector Team"
-},
-{
-"image": "https://placehold.co/600x400/EEE/31343C?text=Python+Programming",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "Why Learn Python?",
-"paragraph": "Python is versatile and beginner-friendly. Students start writing their first programs, working with syntax, variables, loops, and functions.",
-"author": "By Sector Team"
-},
-{
-"image": "https://placehold.co/600x400/EEE/31343C?text=Web+Development",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "Basics of Web Development",
-"paragraph": "Learn the fundamentals of creating websites using HTML, CSS, and JavaScript. Students build their first responsive webpage.",
-"author": "By Sector Team"
-},
-{
-"image": "https://placehold.co/600x400/EEE/31343C?text=Mobile+Apps",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "Developing Mobile Apps",
-"paragraph": "Explore how mobile apps are built. Students learn the app lifecycle, UI design principles, and get introduced to Flutter and Dart.",
-"author": "By Sector Team"
-},
-{
-"image": "https://placehold.co/600x400/EEE/31343C?text=Design+Thinking",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "Design Thinking in Engineering",
-"paragraph": "Design thinking helps solve complex problems with creativity. Students explore empathy, ideation, and prototyping through real-world scenarios.",
-"author": "By Sector Team"
-},
-{
-"image": "https://placehold.co/600x400/EEE/31343C?text=Electronics",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "Exploring Basic Electronics",
-"paragraph": "Students get hands-on with circuits, resistors, capacitors, and learn how electronic devices are built and function in daily life.",
-"author": "By Sector Team"
-},
-{
-"image": "https://placehold.co/600x400/EEE/31343C?text=3D+Printing",
-"logo": "https://raw.githubusercontent.com/SectorApp/SectorApp/faf29bc1317d565e9c0a0b3b19d1302b4d7d8fb9/Logo/Sector-Logo.svg",
-"tag": "#Education",
-"heading": "3D Printing: Design to Reality",
-"paragraph": "Learn how 3D printing brings digital designs to life. Students explore modeling software and print custom prototypes.",
-"author": "By Sector Team"
-}
-]
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "revanth."
+  },  
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "revanth."
+  },  
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  },  
+  {
+    "mainImage": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "tagText": "Mathematics",
+    "title": "Unlocking the World of Numbers",
+    "bodyText": "Mathematics is the language of the universe. On the first day, students explore the beauty and logic of numbers, equations, and patterns. This journey will help them develop critical thinking and analytical skills essential for every field of study.",
+    "authorAttribution": "Sector."
+  }
+] 
