@@ -68,48 +68,72 @@
 
         <!-- Splash screen -->
       <div id="splash">
-        <img src="Logo/Sector-Logo.svg" alt="Company Logo">
+        <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/9c35eb48340eb92342e5829817a43fcf2f99d17c/Logo/Sector-Logo.svg" alt="Company Logo">
       </div>
 
     <!-- Mobile Images -->
     <div class="image-column mobile-images">
-        <img src="Mobile/1.svg" alt="Mobile Image 1">
-        <img src="Mobile/2.svg" alt="Mobile Image 2">
-        <img src="Mobile/3.svg" alt="Mobile Image 3">
-        <img src="Mobile/4.svg" alt="Mobile Image 4">
-        <img src="Mobile/5.svg" alt="Mobile Image 5">
-        <img src="Mobile/6.svg" alt="Mobile Image 6">
-        <img src="Mobile/7.svg" alt="Mobile Image 7">
-        <img src="Mobile/8.svg" alt="Mobile Image 8">
-        <img src="Mobile/9.svg" alt="Mobile Image 9">
-         <iframe align="center" src="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" height="1100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <img id="mobile-1" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/1.webp" alt="Mobile Image 1">
+        <img id="mobile-2" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/2.webp" alt="Mobile Image 2">
+        <img id="mobile-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/3.webp" alt="Mobile Image 3">
+        <img id="mobile-4" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/4.webp" alt="Mobile Image 4">
+        <img id="mobile-5" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/5.webp" alt="Mobile Image 5">
+        <img id="mobile-6" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/6.webp" alt="Mobile Image 6">
+        <img id="mobile-7" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/7.webp" alt="Mobile Image 7">
+        <img id="mobile-8" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/8.webp" alt="Mobile Image 8">
+        <img id="mobile-9" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/9.webp" alt="Mobile Image 9">
+        <iframe align="center" src="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" height="1100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
 
     <!-- Desktop Images -->
     <div class="image-column desktop-images">
-        <img src="Desktop/1.webp" alt="Image 1">
-        <img src="Desktop/2.webp" alt="Image 2">
-        <img src="Desktop/3.webp" alt="Image 3"> 
-
-         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" width="1080" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
+        <img id="desktop-1" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/1.webp" alt="Image 1">
+        <img id="desktop-2" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/2.webp" alt="Image 2">
+        <img id="desktop-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/3.webp" alt="Image 3">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" width="1080" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
 
-        <script>
-            // JavaScript to hide the splash screen after 3 seconds
-    setTimeout(() => {
-      document.getElementById('splash').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    }, 4200);
+    <script>
+        // JavaScript to hide the splash screen after 3 seconds
+        setTimeout(() => {
+            document.getElementById('splash').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }, 4200);
+
+        // Function to preload images in order
+        function preloadImages() {
+            const isMobile = window.innerWidth < 768;
+            const prefix = isMobile ? 'mobile' : 'desktop';
+            const totalImages = isMobile ? 9 : 3;
+
+            // Hide all images initially
+            for (let i = 1; i <= totalImages; i++) {
+                const img = document.getElementById(`${prefix}-${i}`);
+                if (img) img.style.display = 'none';
+            }
+
+            // Load images sequentially
+            let currentImage = 1;
+            function loadNextImage() {
+                if (currentImage <= totalImages) {
+                    const img = document.getElementById(`${prefix}-${currentImage}`);
+                    if (img) {
+                        img.style.display = 'block';
+                        img.onload = () => {
+                            currentImage++;
+                            loadNextImage();
+                        };
+                    }
+                }
+            }
+
+            // Start loading the first image
+            loadNextImage();
+        }
+
         // Ensure the page always starts with the first image visible
         document.addEventListener("DOMContentLoaded", () => {
-            if (window.innerWidth < 768) {
-                // Mobile: Scroll to the first mobile image
-                document.getElementById("first-mobile").scrollIntoView();
-            } else {
-                // Desktop: Scroll to the first desktop image
-                document.getElementById("first-desktop").scrollIntoView();
-            }
+            preloadImages();
         });
     </script>
 </body>
