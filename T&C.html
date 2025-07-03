@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sector App - Legal Terms and Conditions (PDF.js Full Screen)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0; /* Removed margin */
+            padding: 0; /* Removed padding */
+            overflow: hidden; /* Control scrolling via the main container */
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+        /* Removed .container as it's no longer needed for full screen */
+        #pdf-viewer-container {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Enable vertical scrolling for the PDF content */
+            border: none;
+            border-radius: 0; /* Removed border-radius for full screen */
+            box-shadow: none; /* Removed box-shadow for full screen */
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column; /* Stack canvases vertically */
+            align-items: center; /* Center each canvas horizontally */
+            /* Removed padding: 1rem; to make it truly edge-to-edge for content */
+        }
+        canvas {
+            display: block; /* Remove extra space below canvas */
+            max-width: 100%; /* Ensure canvas doesn't overflow its container */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 0; /* Removed margin-bottom to eliminate gap between pages */
+            /* Removed border: 1px solid #e0e0e0; */ /* Removed border for pages */
+        }
+        /* Media queries for height are no longer needed as it's 100vh */
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Removed the .container div as it's not needed for full screen -->
+    <!-- Removed the h1 title -->
+    <div id="pdf-viewer-container">
+        <!-- Canvases for PDF pages will be dynamically added here -->
+        <div id="loading-indicator" class="text-gray-600 text-lg">Loading PDF...</div>
+    </div>
+
+    <!-- PDF.js library files from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
+    <script type="module">
+        // Import pdfjsLib from the loaded module
+        const { pdfjsLib } = globalThis;
+
+        // Set the worker source for PDF.js
+        // This path should point to pdf.worker.min.mjs from the same PDF.js version
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs';
+
+        // The URL of your PDF file on GitHub (raw link)
+        const pdfUrl = 'https://raw.githubusercontent.com/SectorApp/SectorApp/af9d704cea50202f86015d59c076a4a159d4c07c/Grievance/Legal%20Terms%20and%20Conditions.pdf';
+
+        const viewerContainer = document.getElementById('pdf-viewer-container');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        let pdfDoc = null;
+        let scale = 1.5; // Initial scale for rendering
+
+        /**
+         * Renders a single PDF page onto a given canvas.
+         * @param {object} page PDFPageProxy object.
+         * @param {HTMLCanvasElement} canvas The canvas element to render on.
+         */
+        async function renderPageToCanvas(page, canvas) {
+            const viewport = page.getViewport({ scale: scale });
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas dimensions
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            // Render PDF page into canvas context
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            await page.render(renderContext).promise;
+        }
+
+        /**
+         * Initializes the PDF document and renders all pages.
+         */
+        async function loadPdf() {
+            try {
+                // Show loading indicator
+                loadingIndicator.style.display = 'block';
+                viewerContainer.innerHTML = ''; // Clear previous content
+
+                // Asynchronously downloads PDF
+                const loadingTask = pdfjsLib.getDocument(pdfUrl);
+                pdfDoc = await loadingTask.promise;
+
+                // Loop through all pages and render them
+                for (let i = 1; i <= pdfDoc.numPages; i++) {
+                    const page = await pdfDoc.getPage(i);
+
+                    // Create a new canvas for each page
+                    const canvas = document.createElement('canvas');
+                    canvas.id = `pdf-page-${i}`;
+                    viewerContainer.appendChild(canvas);
+
+                    // Render the page to its canvas
+                    await renderPageToCanvas(page, canvas);
+                }
+
+                // Hide loading indicator
+                loadingIndicator.style.display = 'none';
+
+            } catch (error) {
+                console.error('Error loading PDF:', error);
+                // Display a user-friendly error message
+                viewerContainer.innerHTML = `
+                    <p class="text-center text-red-600 p-4">
+                        Failed to load PDF. Your browser might not support direct embedding or there was a network error.
+                        <br>
+                        <a href="${pdfUrl}" target="_blank" class="text-blue-600 hover:underline">Click here to download the PDF</a>.
+                    </p>
+                `;
+            }
+        }
+
+        // Load the PDF when the page is ready
+        window.onload = loadPdf;
+    </script>
+</body>
+</html>
