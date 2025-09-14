@@ -19,6 +19,7 @@
             align-items: center;
             min-height: 100vh;
             background-color: #FFFFFF;
+            padding-top: 110px; /* Adjust for header */
         }
 
          /* Splash screen styles */
@@ -38,6 +39,54 @@
         #splash img {
           width: 150px; /* Adjust logo size */
           height: auto;
+        }
+
+        .top-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: rgba(255, 255, 255, 0.75);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+        }
+
+        .logo-image {
+            height: 60px;
+        }
+
+        .early-access-btn {
+            background-color: #d93025; /* A shade of red */
+            color: white;
+            padding: 10px 22px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .early-access-btn:hover {
+            background-color: #c5221f; /* Darker red on hover */
+        }
+
+        .button-container {
+            padding: 40px 20px;
+        }
+
+        .large-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 25px;
+            text-align: center;
         }
 
         .image-column {
@@ -61,56 +110,85 @@
             .mobile-images {
                 display: block;
             }
+            .top-bar {
+                padding: 10px 15px;
+            }
+            .logo-image {
+                height: 50px;
+            }
+            .early-access-btn {
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+            body {
+                padding-top: 90px; /* Adjust for smaller header */
+            }
+            .large-btn {
+                font-size: 15px;
+                padding: 15px;
+                border-radius: 25px;
+            }
+            .button-container {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <header class="top-bar">
+        <img src="Logo/Sector-Logo.svg" alt="Sector Logo" class="logo-image">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" target="_blank" rel="noopener noreferrer" class="early-access-btn">Get early access</a>
+    </header>
+
         <!-- Splash screen -->
       <div id="splash">
-        <img src="https://raw.githubusercontent.com/SectorApp/SectorApp/9c35eb48340eb92342e5829817a43fcf2f99d17c/Logo/Sector-Logo.svg" alt="Company Logo">
+        <img src="Logo/Sector-Logo.svg" alt="Company Logo">
       </div>
 
     <!-- Mobile Images -->
     <div class="image-column mobile-images">
-        <img id="mobile-1" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/1.png" alt="Mobile Image 1">
-        <img id="mobile-2" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/2.png" alt="Mobile Image 2">
-        <img id="mobile-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/3.png" alt="Mobile Image 3">
-        <img id="mobile-4" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/4.png" alt="Mobile Image 4">
-        <img id="mobile-5" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/5.png" alt="Mobile Image 5">
-        <img id="mobile-6" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/6.png" alt="Mobile Image 6">
-        <img id="mobile-7" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/7.png" alt="Mobile Image 7">
-        <img id="mobile-8" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/8.png" alt="Mobile Image 8">
-        <img id="mobile-9" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Mobile/9.png" alt="Mobile Image 9">
-        <iframe align="center" src="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" height="1100" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <img id="mobile-1" src="Mobile/1.png" alt="Mobile Image 1">
+        <img id="mobile-2" src="Mobile/2.png" alt="Mobile Image 2">
+        <img id="mobile-3" src="Mobile/3.png" alt="Mobile Image 3">
+        <img id="mobile-4" src="Mobile/4.png" alt="Mobile Image 4">
+        <img id="mobile-5" src="Mobile/5.png" alt="Mobile Image 5">
+        <img id="mobile-6" src="Mobile/6.png" alt="Mobile Image 6">
+        <img id="mobile-7" src="Mobile/7.png" alt="Mobile Image 7">
+        <img id="mobile-8" src="Mobile/8.png" alt="Mobile Image 8">
+        <img id="mobile-9" src="Mobile/9.png" alt="Mobile Image 9">
+        <div class="button-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" class="early-access-btn large-btn">Get early access</a>
+        </div>
     </div>
 
     <!-- Desktop Images -->
     <div class="image-column desktop-images">
-        <img id="desktop-1" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/1.png" alt="Image 1">
-        <img id="desktop-2" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/2.png" alt="Image 2">
-        <img id="desktop-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/3.png" alt="Image 3">
-        <img id="desktop-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/4.png" alt="Image 4">
-        <img id="desktop-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/5.png" alt="Image 5">
-        <img id="desktop-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/6.png" alt="Image 6">
-        <img id="desktop-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/7.png" alt="Image 7">
-        <img id="desktop-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/8.png" alt="Image 8">
-        <img id="desktop-3" src="https://raw.githubusercontent.com/SectorApp/SectorApp/refs/heads/main/Desktop/9.png" alt="Image 9">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" width="1080" height="650" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <img id="desktop-1" src="Desktop/1.png" alt="Image 1">
+        <img id="desktop-2" src="Desktop/2.png" alt="Image 2">
+        <img id="desktop-3" src="Desktop/3.png" alt="Image 3">
+        <img id="desktop-4" src="Desktop/4.png" alt="Image 4">
+        <img id="desktop-5" src="Desktop/5.png" alt="Image 5">
+        <img id="desktop-6" src="Desktop/6.png" alt="Image 6">
+        <img id="desktop-7" src="Desktop/7.png" alt="Image 7">
+        <img id="desktop-8" src="Desktop/8.png" alt="Image 8">
+        <img id="desktop-9" src="Desktop/9.png" alt="Image 9">
+        <div class="button-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScAFdZtJqHJtneRKig2P3JA7cN8s-NsL1ECl4svn2A1_TiV2Q/viewform?embedded=true" class="early-access-btn large-btn">Get early access</a>
+        </div>
     </div>
 
     <script>
         // JavaScript to hide the splash screen after 3 seconds
         setTimeout(() => {
             document.getElementById('splash').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
         }, 4200);
 
         // Function to preload images in order
         function preloadImages() {
             const isMobile = window.innerWidth < 768;
             const prefix = isMobile ? 'mobile' : 'desktop';
-            const totalImages = isMobile ? 9 : 3;
+            const totalImages = isMobile ? 9 : 9;
 
             // Hide all images initially
             for (let i = 1; i <= totalImages; i++) {
@@ -144,4 +222,3 @@
     </script>
 </body>
 </html>
-
