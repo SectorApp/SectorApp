@@ -202,11 +202,19 @@
                 if (currentImage <= totalImages) {
                     const img = document.getElementById(`${prefix}-${currentImage}`);
                     if (img) {
-                        img.style.display = 'block';
-                        img.onload = () => {
+                        const next = () => {
                             currentImage++;
                             loadNextImage();
                         };
+
+                        if (img.complete) {
+                            img.style.display = 'block';
+                            next();
+                        } else {
+                            img.onload = next;
+                            img.onerror = next;
+                            img.style.display = 'block';
+                        }
                     }
                 }
             }
